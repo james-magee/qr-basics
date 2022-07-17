@@ -1,6 +1,6 @@
 # qr-basics
 
-TODO:
+TODO: 
 
 0. build grid system for highlighting
 1. implement qr logic
