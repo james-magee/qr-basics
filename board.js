@@ -1,8 +1,6 @@
 // create a set of functions (module) to represent Board:
 
 
-// BOARD: [[]]
-
 /**
  * 
  * @param {Number} size 
