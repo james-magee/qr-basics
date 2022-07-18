@@ -1,0 +1,28 @@
+div {
+  background-color: green;
+}
+
+board {
+  top: 100px;
+  left: 100px;
+  width: 1000px;
+  height: 1000px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+row {
+  width: 100%;
+  height: 10%;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+}
+
+cell {
+  border: 0.1px solid white;
+  height: 100%;
+  width: 10%;
+  display: block;
+}
