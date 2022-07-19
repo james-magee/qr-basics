@@ -1,13 +1,8 @@
-div {
-  background-color: green;
-}
+
 
 board {
-  top: 100px;
-  left: 100px;
   width: 1000px;
   height: 1000px;
-  position: absolute;
   display: flex;
   flex-direction: column;
 }

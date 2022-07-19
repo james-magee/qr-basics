@@ -1,0 +1,7 @@
+// THE QR LOGIC MODULE!
+/**
+ * 
+ * 
+ * 
+ * 
+ */

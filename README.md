@@ -6,3 +6,8 @@
 1. implement qr logic
 2. add input options
 3. add extra features (change color of tiles, change parts, etc.)
+
+
+##### for later:
+
+- set color and shape of cells dynamically (random or user-entered)
