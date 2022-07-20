@@ -11,3 +11,16 @@
 ##### for later:
 
 - set color and shape of cells dynamically (random or user-entered)
+
+
+
+
+### how the qr logic works:
+
+1. choose mode (probably alphanumeric or byte)
+
+2. choose level of error correcting:
+  L, M, Q, H (higher level = more qr squares)
+
+3. error correction coding...
+
