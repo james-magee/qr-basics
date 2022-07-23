@@ -34,6 +34,9 @@ export function Block(width, height, board, parent, color, on) {
 }
 
 
+
+
+
 function isOn () {
   return this.on;
 }

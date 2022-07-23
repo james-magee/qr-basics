@@ -24,9 +24,9 @@ import { Block } from "./block.js";
   this.doc = doc;
   this.node = doc.createElement('board');
   parent.appendChild(this.node);
-  this.node.style.width =  `${blockWidth * 10}px`;
-  this.node.style.height = `${blockHeight * 0}px`;
-  this.board = Array.from(Array(blockHeight), () => new Array(blockWidth));
+  // this.node.style.width =  `${blockWidth * 10}px`;
+  // this.node.style.height = `${blockHeight * 10}px`;
+  this.board = Array.from(Array(blocksY), () => new Array(blocksX));
 
   for (let i = 0; i < blocksY; i++) {
     const row = this.doc.createElement('row');    // might be able to get rid of this using wrapping
