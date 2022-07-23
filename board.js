@@ -20,18 +20,18 @@ import { Block } from "./block.js";
  * @param {Document} doc
  * @param {HTMLElement} parent
  */
- export function Board(blockHeight, blockWidth, blockSqrt, doc, parent, boardHeight=10, boardWidth=10) {
+ export function Board(blocksX, blocksY, blockHeight, blockWidth, doc, parent) {
   this.doc = doc;
   this.node = doc.createElement('board');
   parent.appendChild(this.node);
   this.node.style.width =  `${blockWidth * 10}px`;
-  this.node.style.height = `${blockHeight * 10}px`;
+  this.node.style.height = `${blockHeight * 0}px`;
   this.board = Array.from(Array(blockHeight), () => new Array(blockWidth));
 
-  for (let i = 0; i < blockHeight; i++) {
+  for (let i = 0; i < blocksY; i++) {
     const row = this.doc.createElement('row');    // might be able to get rid of this using wrapping
     this.node.appendChild(row);
-    for (let j = 0; j < blockWidth; j++)
+    for (let j = 0; j < blocksX; j++)
       this.board[i][j] = new Block(blockHeight, blockWidth, this, row, `lightgrey`);
   }
 

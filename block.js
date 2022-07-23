@@ -23,6 +23,8 @@ export function Block(width, height, board, parent, color, on) {
   // dom
   this.node = this.board.doc.createElement('block');
   this.node.style.backgroundColor = (color !== undefined ? color : NEUTRAL_COLOR);
+  this.node.style.width  =  `${this.width}px`;
+  this.node.style.height = `${this.height}px`;
   this.parent.appendChild(this.node);
 
   // assign members
