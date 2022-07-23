@@ -15,7 +15,7 @@ row {
   flex-direction: row;
 }
 
-cell {
+block {
   border: 0.1px solid white;
   height: 100%;
   width: 10%;

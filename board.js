@@ -8,42 +8,34 @@
 // DESIGN NOTE: the alternative to this would be keeping track of everything in the DOM, which would be more efficient but would make it 
 //              more difficult to separate the QR code logic from the logic for updating the HTML
 
+import { Block } from "./block.js";
+
 
 
 /**
  * 
- * @param {Number} height 
- * @param {Number} width in almost all cases height === width ... but flexibility here could be useful
- * @param {Number} blockSize 
+ * @param {Number} blockHeight 
+ * @param {Number} blockWidth in almost all cases height === width ... but flexibility here could be useful
+ * @param {Number} blockSqrt  how many blocks along one side 
  * @param {Document} doc
  * @param {HTMLElement} parent
  */
- export function Board(height, width, blockSize, doc, parent) {
-  this.height = height;
-  this.width = width;
-  this.blockSize = blockSize;
+ export function Board(blockHeight, blockWidth, blockSqrt, doc, parent, boardHeight=10, boardWidth=10) {
   this.doc = doc;
+  this.node = doc.createElement('board');
+  parent.appendChild(this.node);
+  this.node.style.width =  `${blockWidth * 10}px`;
+  this.node.style.height = `${blockHeight * 10}px`;
+  this.board = Array.from(Array(blockHeight), () => new Array(blockWidth));
 
-  // SETUP DOM
-  this.dom = new Object();
-  this.dom.root = doc.createElement('board');
-  this.dom.root.style.width = `${width * blockSize}px`;
-  this.dom.root.style.height = `${height * blockSize}px`;
-  parent.appendChild(this.dom.root);
-  for (let i = 0; i < height; i++) {
-    const row = this.doc.createElement('row');
-    for (let j = 0; j < width; j++) {
-      const cell = doc.createElement('cell');
-      cell.style.backgroundColor = `lightgrey`;
-      row.appendChild(cell);
-    }
-    this.dom.root.appendChild(row);
+  for (let i = 0; i < blockHeight; i++) {
+    const row = this.doc.createElement('row');    // might be able to get rid of this using wrapping
+    this.node.appendChild(row);
+    for (let j = 0; j < blockWidth; j++)
+      this.board[i][j] = new Block(blockHeight, blockWidth, this, row, `lightgrey`);
   }
 
-  // SETUP QR STATE
-  this.board = new Array(height);
-  for (let i = 0; i < height; i++)
-    this.board[i] = new Array(width);
+  
 
   // ADD METHODS
   this.updateCell = updateCell.bind(this);
